@@ -1,6 +1,19 @@
+@font-face {
+    font-family: bonheur-royale;
+    src: url(../font/BonheurRoyale-Regular.ttf);
+}
+@font-face {
+    font-family: merkurius;
+    src: url(../font/Merkurius-z87G0.otf);
+}
+@font-face {
+    font-family: dymax;
+    src: url(../font/DymaxionScript.ttf);
+}
 :root {
     --backgroundcolor: #6bb7f5;
     --etchscreen: #F9F7F1;
+    --etchetched: black;
     --etchborder: #e40000;
     --etchknob: #FCFBF8;
     --tileSize: 12.5px;
@@ -8,6 +21,7 @@
 
 html, body {
     min-height: 100%;
+    font-family: dymax;
 }
 html {
     box-sizing: border-box;
@@ -32,20 +46,28 @@ body {
 
 }
 .etch-container {
-    width: 1000px;
-    height: 1000px;
+    width: 1100px;
+    height: 1100px;
     flex-direction: column;
     align-items: center;
     background-color: var(--etchborder);
     border-width: 10px;
+    border-radius: 150px;
     border-style:solid;
     border-color: #bb0404;
     box-shadow: 0 0 25px black;
 }
 .title {
     width: 600px;
-    height: 80px;
+    height: 130px;
     flex-shrink: 0;
+    text-align: center;
+
+}
+.title-text {
+    font-size: 80px;
+    font-weight: 500;
+    text-shadow: 5px 5px 100px 100px black;
 }
 .screen-container {
     height: 800px;
@@ -53,27 +75,63 @@ body {
     flex-shrink: 0;
     background-color: var(--etchscreen);
     flex-wrap: wrap;
+    overflow: hidden;
 }
 .etch-tile {
-    background-color: black;
+    background-color: var(--etchscreen);
     width: var(--tileSize);
     height: var(--tileSize);
+    touch-action: none;
 }
 .bottom-container {
     justify-content: space-between;
     height: 100%;
-    width: 100%;
+    width: 90%;
 }
 .knob {
     border-radius: 50%;
-    height: 100%;
-    width: 100px;
+    height: 90%;
+    width: 135px;
     background-color: var(--etchknob);
 }
 .button-container {
     width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
-.reset, .input {
-    height: 50px;
+.reset {
+    height: 35px;
     width: 100px;
+    border-style: outset;
+    border-width: 2px;
+    border-color: gold;
+    background-color: red;
+    border-radius: 8px;
+    color: var(--etchknob);
+    text-align: center;
+    font-family: merkurius;
+    font-size: 30px;
+}
+.input {
+    height: 35px;
+    width: 50px;
+    border-radius: 7px;
+    background-color: rgb(187, 0, 0);
+    color: var(--etchknob);
+    font-family: merkurius;
+    font-size: 28px;
+    text-align: center;
+    margin-left: 40px;
+
+}
+.input:focus-visible {
+    outline: none;
+}
+.button {
+    transition: 0.07s;
+}
+.clicked {
+    transform: scale(1);
+    border-style: inset;
 }

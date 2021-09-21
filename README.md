@@ -24,3 +24,9 @@ Etch-a-sketch project for the odin project.
 - add spinning knobs that rotate based on mouse direction
     - https://codepen.io/azedo/pen/nywlc
     ![alt text](./design.svg)
+- add floating clouds
+
+credits:
+- Bonheur Royale font by Robert Leuschke;
+- Dymaxion Script font by Nick's Fonts;
+- Merkurius font by omaikraf;
