@@ -1,0 +1,79 @@
+:root {
+    --backgroundcolor: #6bb7f5;
+    --etchscreen: #F9F7F1;
+    --etchborder: #e40000;
+    --etchknob: #FCFBF8;
+    --tileSize: 12.5px;
+}
+
+html, body {
+    min-height: 100%;
+}
+html {
+    box-sizing: border-box;
+    height: 100%;
+    background-color: var(--backgroundcolor);
+}
+body {
+
+    margin: 0;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+}
+.flex {
+    display: flex;
+}
+.border {
+    border-style: dashed;
+    border-radius: 30px;
+    border-width: 3px;
+    border-color: black;
+
+}
+.etch-container {
+    width: 1000px;
+    height: 1000px;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--etchborder);
+    border-width: 10px;
+    border-style:solid;
+    border-color: #bb0404;
+    box-shadow: 0 0 25px black;
+}
+.title {
+    width: 600px;
+    height: 80px;
+    flex-shrink: 0;
+}
+.screen-container {
+    height: 800px;
+    width: 800px;
+    flex-shrink: 0;
+    background-color: var(--etchscreen);
+    flex-wrap: wrap;
+}
+.etch-tile {
+    background-color: black;
+    width: var(--tileSize);
+    height: var(--tileSize);
+}
+.bottom-container {
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+.knob {
+    border-radius: 50%;
+    height: 100%;
+    width: 100px;
+    background-color: var(--etchknob);
+}
+.button-container {
+    width: 300px;
+}
+.reset, .input {
+    height: 50px;
+    width: 100px;
+}
