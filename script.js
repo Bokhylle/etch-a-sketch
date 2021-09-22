@@ -59,6 +59,12 @@ allTiles.forEach(etchTile => etchTile.addEventListener('mouseover', changeColor)
 allTiles.forEach(etchTile => etchTile.addEventListener('touchmove', changeColor2))
 }
 function changeColor2(e) {
-    console.log(e.changedTouches[0].clientX);
-document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY).style.backgroundColor = 'black';
+    //console.log(e.changedTouches[0].clientX);
+    //console.log(this.classList)
+    let tileChecker = document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY).classList.contains('etch-tile')
+   //console.log(tileChecker)
+    if (tileChecker) {
+    document.elementFromPoint(e.changedTouches[0].clientX, e.changedTouches[0].clientY).style.backgroundColor = 'black';
+    console.log(1)
+    }
 }
