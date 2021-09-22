@@ -2,8 +2,13 @@
 let gridSizeChoice;
 let rotationDegreesY = 0;
 let rotationDegreesX = 1;
+let vh = window.innerHeight * 0.01;
+var shakeSound = new Audio('./snd/shakereset.mp3')
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 //html elements
+const etchBody = document.querySelector('.etch-container')
 const root = document.querySelector(':root');
 const etchScreen = document.querySelector('.screen-container');
 const knobX = document.querySelector('.knob-x');
@@ -18,13 +23,19 @@ function cloneLoop() {
     cloned.classList.add('etch-tile');
     etchScreen.appendChild(cloned);
 };
-function populateScreen(rowSize = 16) {
+function populateScreen(rowSize = 32) {
     let tileSize = 800 / rowSize;
     document.documentElement.style.setProperty('--tileSize', `${tileSize}px`);
     let tileAmount = rowSize ** 2;
     for (n = 0; n < tileAmount; n++) {
         cloneLoop();
     };
+    let allTiles = document.querySelectorAll('.etch-tile');
+allTiles.forEach(etchTile => etchTile.addEventListener('mouseover', changeColor))
+allTiles.forEach(etchTile => etchTile.addEventListener('mouseenter', eventListen))
+
+allTiles.forEach(etchTile => etchTile.addEventListener('touchmove', changeColor2))
+allTiles.forEach(etchTile => etchTile.addEventListener('touchmove', eventListen2))
 };
 function cleanUpScreen(rows = 64) {
     if (rows == 0 || rows == '') {rows = 64};
@@ -47,7 +58,9 @@ resetBtn.addEventListener('transitionend', removeTransition);
 function changeColor() {
     this.style.backgroundColor = 'black'
 }
-resetBtn.onclick = function() {
+resetBtn.onclick = restartBoard
+function restartBoard() {
+    shakeReset()
     this.classList.add("clicked");
     if (gridSizeInput.value > 0){
     gridSizeChoice = gridSizeInput.value;
@@ -135,3 +148,9 @@ function rotateKnobX(rotationValue) {
     root.style.setProperty("--rotateKnobX", (rotationDegreesX + 'deg'))
     //console.log(rotationValue * 45);
 }
+etchBody.addEventListener('animationend', removeclass => etchBody.classList.remove('shake'));
+function shakeReset() {
+etchBody.classList.add('shake');
+shakeSound.play()
+}
+resetBtn.click()
