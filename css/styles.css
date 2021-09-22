@@ -23,7 +23,7 @@
 }
 
 html, body {
-    min-height: 100%;
+   
     font-family: dymax;
 }
 html {
@@ -32,7 +32,7 @@ html {
     background-color: var(--backgroundcolor);
 }
 body {
-    margin: 0;
+
     overflow-x: hidden;
     justify-content: center;
     align-items: center;
@@ -48,6 +48,7 @@ body {
 }
 */
 .etch-container {
+    position: absolute;
     width: 1100px;
     height: 1100px;
     flex-direction: column;
@@ -58,6 +59,11 @@ body {
     border-style:solid;
     border-color: #bb0404;
     box-shadow: 0 0 25px black;
+    margin: auto auto auto auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
 .logo {
     max-height: 100px;
@@ -96,6 +102,8 @@ body {
     background-color: var(--etchscreen);
     flex-wrap: wrap;
     overflow: hidden;
+    border-radius: 20px;
+    border-style: ridge;
 }
 .etch-tile {
     background-color: var(--etchscreen);
@@ -175,11 +183,17 @@ body {
     border-style: inset;
 }
 @media only screen and (max-width: 720px) {
- .etch-container {
-     max-width: 100%;
-     width: 90vw;
-     height: 100vh;
+ html {
+ overflow-x: auto;
+ overflow-y: auto;
+ height: 100%
+ }
+
+    .etch-container {
+        margin-top: auto;
+overflow: hidden;
      border-radius: 50px;
+     justify-content: space-evenly;
  }   
  div .screen-container {
      width: 80%;
@@ -199,6 +213,7 @@ body {
  }
  .etch-tile {
      flex-grow: 1;
+     flex-shrink: 0;
  }
  .logo {
      height: 60px;
@@ -211,6 +226,10 @@ body {
  }
  .bottom-container {
      height: 10vh;
-     width: 90%
+     width: 90%;
+
+ }
+ .reset, .input { 
+     max-width: 100px;
  }
 }

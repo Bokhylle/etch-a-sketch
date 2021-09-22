@@ -134,5 +134,4 @@ function rotateKnobX(rotationValue) {
     rotationDegreesX += rotationValue * 45
     root.style.setProperty("--rotateKnobX", (rotationDegreesX + 'deg'))
     //console.log(rotationValue * 45);
-
 }
