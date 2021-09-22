@@ -56,6 +56,8 @@ resetBtn.onclick = function() {
     }
 let allTiles = document.querySelectorAll('.etch-tile');
 allTiles.forEach(etchTile => etchTile.addEventListener('mouseover', changeColor))
+allTiles.forEach(etchTile => etchTile.addEventListener('mouseenter', eventListen))
+
 allTiles.forEach(etchTile => etchTile.addEventListener('touchmove', changeColor2))
 }
 function changeColor2(e) {
@@ -68,3 +70,18 @@ function changeColor2(e) {
     console.log(1)
     }
 }
+function eventListen(e) {
+    console.log('clientx ' + e.clientX);
+    console.log('clienty ' + e.clientY);
+
+}
+let previousTileClientX;
+let previousTileClientY;
+//two functions to return clientx and client y and store in variable
+function storeClientX(e) {
+    return previousTileClientX = e.clientX
+}
+function storeClientY(e) {
+    return previousTileClientY = e.clientY
+}
+//function to subtract x and y variables from new clientx and clienty

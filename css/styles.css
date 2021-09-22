@@ -38,13 +38,13 @@ body {
 .flex {
     display: flex;
 }
-.border {
+/*.border {
     border-style: dashed;
     border-radius: 30px;
     border-width: 3px;
     border-color: black;
-
 }
+*/
 .etch-container {
     width: 1100px;
     height: 1100px;
@@ -57,17 +57,35 @@ body {
     border-color: #bb0404;
     box-shadow: 0 0 25px black;
 }
+.logo {
+    max-height: 100px;
+    max-width: 100px;
+    opacity: 100%;
+    position: absolute;
+    align-self: start;
+    margin: 20px 0 0 60px
+}
 .title {
-    width: 600px;
+    width: 1000px;
+    color: rgb(245, 186, 39);
     height: 130px;
     flex-shrink: 0;
     text-align: center;
-
+    align-items: center;
+    justify-content: center;
+    
+    
 }
 .title-text {
-    font-size: 80px;
+    font-size: 85px;
     font-weight: 500;
-    text-shadow: 5px 5px 100px 100px black;
+    text-shadow: 0px 3px 4px gold, 0px 4px 3px black;
+}
+.support-text{
+    font-family: merkurius;
+    font-size: 20PX;
+    MARgin: 0 10px 0 10px;
+    text-shadow: 2px 2px 2px gold, 3px 3px 2px black;
 }
 .screen-container {
     height: 800px;
@@ -89,10 +107,22 @@ body {
     width: 90%;
 }
 .knob {
+    margin-top: 10px;
     border-radius: 50%;
-    height: 90%;
-    width: 135px;
+    height: 150px;
+    width: 150px;
+    border-style: solid;
+    border-width: 2px;
     background-color: var(--etchknob);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.knob-x, .knob-y {
+    height: 90%;
+    width: 90%;
+    border-style: none;
+    transform: rotate(180deg);
 }
 .button-container {
     width: 300px;
