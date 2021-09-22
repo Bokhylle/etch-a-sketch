@@ -17,6 +17,9 @@
     --etchborder: #e40000;
     --etchknob: #FCFBF8;
     --tileSize: 12.5px;
+    --rotateKnobX: 0;
+    --rotateKnobY: 0;
+    --rotationSpeed: 0.07s;
 }
 
 html, body {
@@ -29,7 +32,6 @@ html {
     background-color: var(--backgroundcolor);
 }
 body {
-
     margin: 0;
     overflow-x: hidden;
     justify-content: center;
@@ -122,7 +124,14 @@ body {
     height: 90%;
     width: 90%;
     border-style: none;
-    transform: rotate(180deg);
+    transition: var(--rotationSpeed);
+    transition-timing-function: linear;
+}
+.knob-x {
+    transform: rotate(var(--rotateKnobX));
+}
+.knob-y {
+    transform: rotate(var(--rotateKnobY));
 }
 .button-container {
     width: 300px;
@@ -164,4 +173,44 @@ body {
 .clicked {
     transform: scale(1);
     border-style: inset;
+}
+@media only screen and (max-width: 720px) {
+ .etch-container {
+     max-width: 100%;
+     width: 90vw;
+     height: 100vh;
+     border-radius: 50px;
+ }   
+ div .screen-container {
+     width: 80%;
+     height: 60%;
+     border-radius: 20px;
+ }
+ .title {
+     height: 100px;
+ }
+ .title-text {
+     font-size: 40px;
+ }
+ .support-text {
+     font-size: 14px;
+     margin: 0 2px 0 2px;
+     display: none;
+ }
+ .etch-tile {
+     flex-grow: 1;
+ }
+ .logo {
+     height: 60px;
+     margin: 5px 0 0 5px;
+ }
+ .knob {
+     width: 50px;
+     height: 50px;
+     display: none;
+ }
+ .bottom-container {
+     height: 10vh;
+     width: 90%
+ }
 }
