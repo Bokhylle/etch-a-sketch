@@ -141,7 +141,7 @@ body {
     background-color: var(--etchscreen);
     width: var(--tileSize);
     height: var(--tileSize);
-    touch-action: none;
+    /*touch-action: none;*/
 }
 .bottom-container {
     justify-content: space-between;
@@ -223,7 +223,7 @@ body {
 
     .etch-container {
     height: 95%;
-    width: 95%;
+    width: 90%;
      overflow: hidden;
      border-radius: 50px;
      justify-content: space-evenly;
